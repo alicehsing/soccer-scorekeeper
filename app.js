@@ -109,7 +109,7 @@ function displayCurrentGameEl() {
         name2: name2,
         score2: score2
     };
-    
+
     renderGame(currentGame);
     // append the element to the cleared out current game div
     const newElement = renderGame(currentGame);
@@ -123,9 +123,9 @@ function displayAllGames() {
     pastGamesEl.textContent = '';
     //use a for loop to loop through all past scores
     for (let pastGame of pastGamesArray) {
-        console.log(pastGame, 'this is our past game');
-    const container = renderGame(pastGame);
-console.log(container, 'this is my container');
+     
+        const container = renderGame(pastGame);
+
         pastGamesEl.append(container);
     }
 }
