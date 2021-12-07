@@ -50,7 +50,7 @@
   - 1 team two 'add' button
         How? Add event listener to increment the score count for team two in the current score board
   - 1 team two 'subtract' button
-        How? Add event listener to dencrement the score count for team two in the current score board
+        How? Add event listener to decrement the score count for team two in the current score board
   - 1 'name teams' "form" button
         How? Add 'submit' listener (not 'click' to make "enter" keyboard work) to the form
         - 2 inputs (team one name, team two name)
