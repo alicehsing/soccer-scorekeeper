@@ -69,9 +69,18 @@ finishGameButton.addEventListener('click', () => {
     // when i click the finish game button, clear out the form
     nameForm.reset();
 
-    //save a copy of state
-    //then save the old game in an object so we can push it to an array
-    let currentGame = {
+    //save a copy of state, then save the old game in an object so we can push it to an array
+    //create some DOM
+    //display each past score in the list
+
+    // HINT: it will be helpful to keep track of these games as objects with 4 properties, one for each piece of state we're tracking
+    // const currentGame = {
+    //     name1: name1,
+    //     name2: name2,
+    //     score1: score1,
+    //     score2: score2,
+    // };
+    const currentGame = {
         name1: name1,
         score1: score1,
         name2: name2,
@@ -81,15 +90,13 @@ finishGameButton.addEventListener('click', () => {
     // add the current game/score to an array of games in state.
     pastGamesArray.push(currentGame);
   
-    //clear DOM of the list
+    displayAllGames();
+
+    // reset the initial state to start with a new form
     name1 = '';
     name2 = '';
     score1 = 0;
     score2 = 0;
-
-    displayAllGames();
-
-    // reset the initial state to start with a new form
 
     displayCurrentGameEl();
 });
@@ -103,17 +110,16 @@ function displayCurrentGameEl() {
     teamTwoLabel.textContent = name2;
 
     // call the render game function to create a game element
-    let currentGame = {
+    const newGame = {
         name1: name1,
         score1: score1,
         name2: name2,
         score2: score2
     };
 
-    renderGame(currentGame);
+    renderGame(newGame);
     // append the element to the cleared out current game div
-    const newElement = renderGame(currentGame);
-     // append the element to the cleared out current game div
+    const newElement = renderGame(newGame);
     currentGameEl.append(newElement);
 }
 
@@ -121,28 +127,10 @@ function displayAllGames() {
 
     // clear out the past games list in the DOM
     pastGamesEl.textContent = '';
-    //use a for loop to loop through all past scores
+    // use a for loop to loop through all past scores
     for (let pastGame of pastGamesArray) {
-     
-        const container = renderGame(pastGame);
-
-        pastGamesEl.append(container);
+    // render and append a past game for each past game in state
+        const gameEl = renderGame(pastGame);
+        pastGamesEl.append(gameEl);
     }
 }
-
-    // render and append a past game for each past game in state
-
-
-
-    //create some DOM
-    //display each past score in the list
-
-    // HINT: it will be helpful to keep track of these games as objects with 4 properties, one for each piece of state we're tracking
-    // const currentGame = {
-    //     name1: name1,
-    //     name2: name2,
-    //     score1: score1,
-    //     score2: score2,
-    // };
-
-
